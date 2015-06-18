@@ -4,7 +4,7 @@
 -虚拟机初始化
 
 ```shell
-curl -sSL https://github.lngtop.com/lngtop/zhangnan/devops/init.sh | sh
+curl -sSL http://vm-support.lngtop.com/devops/init.sh | sh
 ```
 
 

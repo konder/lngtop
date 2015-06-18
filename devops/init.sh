@@ -2,7 +2,7 @@
 set -e
 #
 # This script is meant for quick & easy install via:
-#   'curl -sSL https://github.lngtop.com/lngtop/zhangnan/devops/init.sh | sh 
+#   'curl -sSL http://vm-support.lngtop.com/devops/init.sh | sh 
 
 cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
@@ -22,3 +22,10 @@ rm $tmpfile
 
 # restart crontab
 /etc/init.d/crond.sh restart
+
+echo "*********************************************************************"
+echo "****  Done"
+echo "*********************************************************************"
+
+exit 1
+
