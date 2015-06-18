@@ -21,7 +21,7 @@ crontab $tmpfile
 rm $tmpfile
 
 # restart crontab
-/etc/init.d/crond.sh restart
+service crond restart
 
 echo "*********************************************************************"
 echo "****  Done"
