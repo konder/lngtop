@@ -1,7 +1,8 @@
 image: nginx 
 
 install:
-        - apt-get install -y git
+        - apt-get update
+        - apt-get install -y git git-core
         
 script:
         - echo "Run test cases here" 
