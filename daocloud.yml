@@ -1,7 +1,6 @@
 image: nginx 
 
 install:
-        - apt-get update
         - apt-get install -y git git-core
         
 script:
