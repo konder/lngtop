@@ -1,8 +1,11 @@
-image: nginx 
+image: daocloud/ci-python:2.7 
 
 install:
-        - apt-get update -y
-        - apt-get install -y git
+    - echo $MYENV
+    - echo "This is an install segment"
+    - echo "Here, we usually run scripts to setup a base environment"
+    - echo "For customized image, you can install git here using command apt-get install -y git-core"
+
         
 script:
         - echo "Run test cases here" 
