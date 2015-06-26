@@ -1,4 +1,7 @@
 image: nginx 
 
+install:
+        - yum install -y git
+        
 script:
         - echo "Run test cases here" 
