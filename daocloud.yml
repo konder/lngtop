@@ -1,7 +1,7 @@
 image: nginx 
 
 install:
-        - apt-get upate -y
+        - apt-get update -y
         - apt-get install -y git
         
 script:
