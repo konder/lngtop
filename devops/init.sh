@@ -7,6 +7,7 @@ set -e
 cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 yum update -y
+yum install -y gcc gcc-c++ make
 yum install -y ntpdate  chkconifg
 chkconfig ntpdate on
 
