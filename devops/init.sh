@@ -32,6 +32,15 @@ rm $tmpfile
 # restart crontab
 service crond restart
 
+echo "*********************************************************************"
+echo "****  watch by ganglia"
+echo "*********************************************************************"
+
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum install -y ganglia-gmond
+sed -i 's/name = "unspecified"/name = "Production"/' /etc/ganglia/gmond.conf
+service gmond start
+
 
 echo "*********************************************************************"
 echo "****  mount disk"
