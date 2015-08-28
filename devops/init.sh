@@ -2,7 +2,7 @@
 #set -e
 #
 # This script is meant for quick & easy install via:
-#   'curl -sSL http://vm-support.lngtop.com/devops/init.sh | sh 
+#   'curl -sSL https://raw.githubusercontent.com/konder/lngtop/master/devops/init.sh | sh 
 
 echo "*********************************************************************"
 echo "****  Install package"
