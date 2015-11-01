@@ -41,6 +41,13 @@ yum install -y ganglia-gmond
 sed -i 's/name = "unspecified"/name = "Production"/' /etc/ganglia/gmond.conf
 service gmond start
 
+echo "*********************************************************************"
+echo "****  monitor by newrelic"
+echo "*********************************************************************"
+rpm -Uvh https://download.newrelic.com/pub/newrelic/el5/i386/newrelic-repo-5-3.noarch.rpm
+yum install newrelic-sysmond
+nrsysmond-config --set license_key=c7809bb456d5f623fec2539113ecb3c11515eb19
+/etc/init.d/newrelic-sysmond start
 
 echo "*********************************************************************"
 echo "****  mount disk"
