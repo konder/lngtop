@@ -71,6 +71,11 @@ echo "/dev/vda2 /data ext4 defaults 0 0" >> /etc/fstab
 
 sed -i 's/openstacklocal/openstacklocal\nnameserver 172.16.100.111/' /etc/resolv.conf
 
+cat >> /etc/security/limits.conf <<EOF
+* soft nofile 32768
+* hard nofile 65536
+EOF
+
 echo "*********************************************************************"
 echo "****  Done"
 echo "*********************************************************************"
