@@ -69,6 +69,8 @@ mkdir /data
 mount  /dev/vda2 /data
 echo "/dev/vda2 /data ext4 defaults 0 0" >> /etc/fstab
 
+sed -i 's/openstacklocal/openstacklocal\nnameserver 172.16.100.111/' /etc/resolv.conf
+
 echo "*********************************************************************"
 echo "****  Done"
 echo "*********************************************************************"
