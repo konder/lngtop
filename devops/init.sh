@@ -10,7 +10,7 @@ echo "*********************************************************************"
 
 yum update -y
 yum install -y gcc gcc-c++ make
-yum install -y ntpdate  chkconifg
+yum install -y ntpdate  chkconifg vim
 chkconfig ntpdate on
 
 echo "*********************************************************************"
