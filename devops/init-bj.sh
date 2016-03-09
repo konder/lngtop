@@ -26,15 +26,14 @@ service sshd restart
 cat >> /root/update-motd <<EOF
 #!/bin/bash
 
-motdfile=/etc/motd
-echo ""                                                     >> $motdfile
-echo "    __     _   __   ______  ______   ____     ____  " >> $motdfile
-echo "   / /    / | / /  / ____/ /_  __/  / __ \   / __ \ " >> $motdfile
-echo "  / /    /  |/ /  / / __    / /    / / / /  / /_/ / " >> $motdfile
-echo " / /___ / /|  /  / /_/ /   / /    / /_/ /  / ____/  " >> $motdfile
-echo "/_____//_/ |_/   \____/   /_/     \____/  /_/  BJ   " >> $motdfile
-echo ""                                                     >> $motdfile
-echo "`df -h | egrep '(Filesystem)|(/dev/sd)'`"              >> $motdfile
+echo ""                                                     >> /etc/motd
+echo "    __     _   __   ______  ______   ____     ____  " >> /etc/motd
+echo "   / /    / | / /  / ____/ /_  __/  / __ \   / __ \ " >> /etc/motd
+echo "  / /    /  |/ /  / / __    / /    / / / /  / /_/ / " >> /etc/motd
+echo " / /___ / /|  /  / /_/ /   / /    / /_/ /  / ____/  " >> /etc/motd
+echo "/_____//_/ |_/   \____/   /_/     \____/  /_/  BJ   " >> /etc/motd
+echo ""                                                     >> /etc/motd
+echo "`df -h | egrep '(Filesystem)|(/dev/sd)'`"             >> /etc/motd
 echo "" 
 EOF
 chmod +x /root/update-motd
