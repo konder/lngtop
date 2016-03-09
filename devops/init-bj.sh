@@ -8,20 +8,21 @@ echo "*********************************************************************"
 echo "****  Prepare account"
 echo "*********************************************************************"
 
-useradd zhangnan
-mkdir -p /home/zhangnan/.ssh
-cat >> /home/zhangnan/.ssh/ <<EOF
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGsu4nRVbnMyLOg0wxd3q3LAj6mNrDacLhiGLAcfTawv6tWQzIqldJS+1lTb/X3u9OX4FFxkXexM1X3iZkR040xzb+pQbdSzBocZe7dt0bNtvAUsBQAyJyPKOoOQgn9lkJ0CIZcaH8yTxUNkhKQGElYhl/GWbHH2tQIW+0dcv9/d1UfpQd7C1FI6tNGA/muTD2HevOsmB8IF6bGAApnU1TV88Kx5nthUd/aeWWtOJeC9IqsCKK1vHu0XT/97gYW4GQT9PZV4yigMqiRQz7fJQ/JUqDQafIQOqumlu3hdmIjWPO6NEkvTzTe7U+b7FozvSCrrrWk6mzh1utqn2DeM7r zhangnan.it
+mkdir -p /root/.ssh
+cat >> /root/.ssh/authorized_keys <<EOF
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAtAVZ5PwNnBTUUO6B7tr9z9IIOvaoJObkU2fxWTz1vPHug9qP97O5rjJ8Ouj1XHtkRg6aJmhTlTNyi9Q7aYC2gBA8n8lPJ9K4rVn6RhsJdw/ueOZuHZFE2OW4g8g9AE+4tjJudxlehf5JIQHg6ASu8qqeeyd5wcX9DDWxn8voIhCQqEPXZGsZhDGZI6YJoz8hAJTxOSMj8X3DqtL53EOpsF2//frEuWaMkygDpzTpmbBzAs4r/2B87l2bQl2vt8WM5Xn9+5IQi+Pkm/LkMh8PJcG7ZmFIiTCO8qijY2JxsnwTclu7pB1xXTueyP+jeHr0nKl86zacm0DCK+s+EsTgvw== zhangnan@relay
 EOF
-chown zhangnan:zhangnan /home/zhangnan
+chmod 700 /root/.ssh
+chomo 600 /root/.ssh/authorized_keys
 
 cat >> /etc/ssh/sshd_config <<EOF
 RSAAuthentication yes
 PubkeyAuthentication yes
-AuthorizedKeysFile      .ssh/authorized_keys
 PasswordAuthentication no
 EOF
 service sshd restart
+
+sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
 
 echo "*********************************************************************"
 echo "****  Install package"
@@ -29,7 +30,7 @@ echo "*********************************************************************"
 
 yum update -y
 yum install -y gcc gcc-c++ make
-yum install -y ntpdate  chkconifg vim
+yum install -y ntpdate  chkconifg vim openssh-clients
 chkconfig ntpdate on
 
 echo "*********************************************************************"
