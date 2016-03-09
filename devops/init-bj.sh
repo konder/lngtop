@@ -23,21 +23,6 @@ PasswordAuthentication no
 EOF
 service sshd restart
 
-cat >> /root/update-motd <<EOF
-#!/bin/bash
-
-echo ""                                                     >> /etc/motd
-echo "    __     _   __   ______  ______   ____     ____  " >> /etc/motd
-echo "   / /    / | / /  / ____/ /_  __/  / __ \   / __ \ " >> /etc/motd
-echo "  / /    /  |/ /  / / __    / /    / / / /  / /_/ / " >> /etc/motd
-echo " / /___ / /|  /  / /_/ /   / /    / /_/ /  / ____/  " >> /etc/motd
-echo "/_____//_/ |_/   \____/   /_/     \____/  /_/  BJ   " >> /etc/motd
-echo ""                                                     >> /etc/motd
-echo "`df -h | egrep '(Filesystem)|(/dev/sd)'`"             >> /etc/motd
-echo "" 
-EOF
-chmod +x /root/update-motd
-
 echo "*********************************************************************"
 echo "****  Install package"
 echo "*********************************************************************"
@@ -56,7 +41,6 @@ tmpfile=/tmp/crontab.tmp
 
 # add custom entries to crontab
 echo '*/1 * * * * /usr/sbin/ntpdate time.windows.com &>/var/log/ntpdate.log' > $tmpfile
-echo '0 0 * * * /root/update-motd' >> $tmpfile
 
 #load crontab from file
 crontab $tmpfile
