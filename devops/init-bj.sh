@@ -30,7 +30,7 @@ echo "*********************************************************************"
 
 yum update -y
 yum install -y gcc gcc-c++ make
-yum install -y ntpdate  chkconifg vim openssh-clients
+yum install -y ntpdate telnet chkconifg vim openssh-clients
 chkconfig ntpdate on
 
 echo "*********************************************************************"
