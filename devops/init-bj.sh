@@ -13,7 +13,7 @@ cat >> /root/.ssh/authorized_keys <<EOF
 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAtAVZ5PwNnBTUUO6B7tr9z9IIOvaoJObkU2fxWTz1vPHug9qP97O5rjJ8Ouj1XHtkRg6aJmhTlTNyi9Q7aYC2gBA8n8lPJ9K4rVn6RhsJdw/ueOZuHZFE2OW4g8g9AE+4tjJudxlehf5JIQHg6ASu8qqeeyd5wcX9DDWxn8voIhCQqEPXZGsZhDGZI6YJoz8hAJTxOSMj8X3DqtL53EOpsF2//frEuWaMkygDpzTpmbBzAs4r/2B87l2bQl2vt8WM5Xn9+5IQi+Pkm/LkMh8PJcG7ZmFIiTCO8qijY2JxsnwTclu7pB1xXTueyP+jeHr0nKl86zacm0DCK+s+EsTgvw== zhangnan@relay
 EOF
 chmod 700 /root/.ssh
-chomo 600 /root/.ssh/authorized_keys
+chmod 600 /root/.ssh/authorized_keys
 
 cat >> /etc/ssh/sshd_config <<EOF
 RSAAuthentication yes
