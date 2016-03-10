@@ -19,6 +19,7 @@ cat >> /etc/ssh/sshd_config <<EOF
 RSAAuthentication yes
 PubkeyAuthentication yes
 PasswordAuthentication no
+GSSAPIAuthentication no
 EOF
 service sshd restart
 
